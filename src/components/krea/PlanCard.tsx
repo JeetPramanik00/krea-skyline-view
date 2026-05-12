@@ -25,9 +25,9 @@ export function PlanCard({ plan }: { plan: Plan }) {
 
   return (
     <div
-      className={`relative flex flex-col rounded-2xl border bg-[#111] p-6 ${
+      className={`relative flex h-full flex-col rounded-2xl border bg-[#111] p-6 ${
         plan.highlight
-          ? "border-[#4f6ef7]/40 shadow-[0_0_0_1px_#4f6ef7,0_20px_60px_-20px_rgba(79,110,247,0.4)]"
+          ? "border-[#1f1f1f] border-t-2 border-t-[#4f6ef7] shadow-[0_0_0_1px_rgba(79,110,247,0.25),0_8px_32px_rgba(79,110,247,0.15)]"
           : "border-[#1f1f1f]"
       }`}
     >
@@ -43,11 +43,19 @@ export function PlanCard({ plan }: { plan: Plan }) {
       <p className="mb-6 text-xs leading-relaxed text-[#888]">{plan.subtitle}</p>
 
       <div className="mb-6 flex items-baseline gap-1">
-        {isNum && <span className="text-sm text-[#666]">$</span>}
-        <span className="text-5xl font-bold tracking-tight text-white">
-          {isNum ? displayPrice : displayPrice}
-        </span>
-        {isNum && <span className="text-xs text-[#666]">/mo</span>}
+        {isNum ? (
+          <>
+            <span className="text-sm text-[#666]">$</span>
+            <span className="text-5xl font-bold tracking-tight text-white">{displayPrice}</span>
+            <span className="text-xs text-[#666]">/mo</span>
+          </>
+        ) : (
+          <span className="text-4xl font-bold leading-tight tracking-tight text-white">
+            {String(displayPrice).split(" ").map((w, i) => (
+              <span key={i} className="block">{w}</span>
+            ))}
+          </span>
+        )}
       </div>
 
       <button

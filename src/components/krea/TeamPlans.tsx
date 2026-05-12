@@ -45,17 +45,17 @@ const enterprise: Plan = {
 export function TeamPlans() {
   const [seat, setSeat] = useState("MX");
   return (
-    <section className="grid gap-6 lg:grid-cols-[280px_1fr]">
-      <div>
+    <section>
+      <div className="mb-6">
         <h3 className="text-xl font-medium text-white">For Teams and Enterprises</h3>
-        <p className="mt-2 text-xs leading-relaxed text-[#888]">
+        <p className="mt-2 max-w-md text-xs leading-relaxed text-[#888]">
           Workplace management, collaboration, and enterprise customizations.
         </p>
       </div>
-      <div className="grid gap-6 md:grid-cols-2">
+      <div className="grid items-start gap-6 md:grid-cols-2">
         <div className="space-y-3">
           <PlanCard plan={business} />
-          <div className="flex items-center gap-1 rounded-full border border-[#1f1f1f] bg-[#0f0f0f] p-1">
+          <div className="flex flex-wrap items-center gap-1 rounded-full border border-[#1f1f1f] bg-[#0f0f0f] p-1">
             {seatOptions.map((o) => (
               <button
                 key={o}
