@@ -1,26 +1,37 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { BillingProvider } from "@/components/krea/billing";
+import { Hero } from "@/components/krea/Hero";
+import { IndividualPlans } from "@/components/krea/IndividualPlans";
+import { TeamPlans } from "@/components/krea/TeamPlans";
+import { ComputePacks } from "@/components/krea/ComputePacks";
+import { CompareTable } from "@/components/krea/CompareTable";
+import { FAQAccordion } from "@/components/krea/FAQAccordion";
+import { BottomCTA } from "@/components/krea/BottomCTA";
 
 export const Route = createFileRoute("/")({
-  component: Index,
+  component: PricingPage,
+  head: () => ({
+    meta: [
+      { title: "Pricing — Krea" },
+      { name: "description", content: "Plans and pricing for Krea — the world's best creative AI studio. Choose Basic, Pro, Max, Business, or Enterprise." },
+    ],
+  }),
 });
 
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
+function PricingPage() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <BillingProvider>
+      <main className="min-h-screen bg-[#0a0a0a] text-white">
+        <div className="mx-auto max-w-[1200px] space-y-24 px-6 py-16">
+          <Hero />
+          <IndividualPlans />
+          <TeamPlans />
+          <ComputePacks />
+          <CompareTable />
+          <FAQAccordion />
+          <BottomCTA />
+        </div>
+      </main>
+    </BillingProvider>
   );
-}
-
-function Index() {
-  return <PlaceholderIndex />;
 }
