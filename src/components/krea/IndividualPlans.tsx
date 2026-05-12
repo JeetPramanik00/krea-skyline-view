@@ -52,11 +52,9 @@ const plans: Plan[] = [
 
 export function IndividualPlans() {
   return (
-    <section className="grid gap-6 lg:grid-cols-[280px_1fr]">
-      <div>
-        <h3 className="text-xl font-medium text-white">For Individual Creators</h3>
-      </div>
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+    <section>
+      <h3 className="mb-6 text-xl font-medium text-white">For Individual Creators</h3>
+      <div className="grid items-start gap-6 md:grid-cols-2 lg:grid-cols-3">
         {plans.map((p) => (
           <PlanCard key={p.name} plan={p} />
         ))}

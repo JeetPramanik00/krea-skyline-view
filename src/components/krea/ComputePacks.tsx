@@ -55,11 +55,11 @@ export function ComputePacks() {
         To get more credits or a recurring purchase, consider upgrading your plan.
       </p>
 
-      <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+      <div className="mt-10 flex gap-4 overflow-x-auto pb-2 lg:grid lg:grid-cols-5 lg:overflow-visible">
         {packs.map((p) => (
           <div
             key={p.units}
-            className="rounded-xl border border-[#1f1f1f] bg-[#0f0f0f] p-4 text-left"
+            className="w-[180px] flex-shrink-0 rounded-xl border border-[#1f1f1f] bg-[#0f0f0f] p-4 text-left lg:w-auto"
           >
             <div className="text-2xl font-bold text-white">{p.units.toLocaleString()}</div>
             <div className="text-[10px] uppercase tracking-wide text-[#666]">units</div>
